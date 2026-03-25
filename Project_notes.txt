@@ -1,0 +1,17 @@
+1 - Admin
+
+Add product
+Edit product
+Remove product
+Order management
+Show users
+
+2 - User
+
+Register
+Login
+whishlist
+add to cart
+buy
+order view
+feedback
