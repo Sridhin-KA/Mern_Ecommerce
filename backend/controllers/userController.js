@@ -33,6 +33,21 @@ catch(err){
 export const loginuser = async(req,res)=>{
     try{
         const {email,password} = req.body
+
+        //admin checking
+        if (email === process.env.Admin_EMAIL && password === process.env.ADMIN_PASSWORD){
+            const token =  jwt.sign(
+                {isAdmin:true},
+                process.env.JWT_SECRET,
+                {expiresIn:'1d'}
+            )
+            return res.json({
+                email,
+                isAdmin:true,
+                token,
+                
+            })
+        }
         //data getting from body(form)
         const user = await User.findOne({email})
 
