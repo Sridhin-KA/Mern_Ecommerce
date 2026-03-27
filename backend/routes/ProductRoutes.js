@@ -1,11 +1,12 @@
 import express from 'express'
 import { protect,adminOnly } from '../middleware/authMiddleware.js'
+import { addProduct } from '../controllers/productController.js'
+
+
 
 const router = express.Router()
 
-const addProduct = (req,res)=>{
-    res.json({msg:'product added successfully'})
-}
+
 
 router.post('/addproduct',protect,adminOnly,addProduct)
 
